@@ -1,6 +1,7 @@
 
 @extends('layout')
 @section('content')
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <!-- slide - menu list -->
     <section class="menu-slide">
         <div class="container">
@@ -22,7 +23,7 @@
                             <a href="#" class="menu__link">
                             <img src="images/item/laptop.jfif" alt="" class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
                             Laptop</a>
-                        </li
+                        </li>
                     </ul>
                 </nav>
                 <div class="slider col-lg-9 col-md-12 col-sm-0">
@@ -68,9 +69,7 @@
         </div>
     </section>
     <!-- end slide menu list -->
-<!-- score-top-->
-
-<button onclick="topFunction()" id="myBtn-scroll" title="Go to top"><i class="fas fa-chevron-up"></i></i></button>
+    <!-- score-top-->
     <!-- bestselling product -->
     <section class="bestselling">
         <div class="container">
@@ -81,29 +80,31 @@
                 
                 <div class="main-carousel-phone">
                 @foreach($product as $p)
-                    <div class="Samsung-Galaxy-ZFold3-5G product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
+                    <div class=" product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="product__panel-item-wrap">
-                            <div class="product__panel-img-wrap">
-                                <img src="{{$p->image}}" alt="" class="product__panel-img">
-                            </div>
-                            
-                            <div class="product__panel-text">
-                                <h3 class="product__panel-heading">
-                                    <a href="#" class="product__panel-link">{{$p->name}}</a>
-                                </h3>
-                                <div class="product__panel-rate-wrap">
-                                    <i class="fas fa-star product__panel-rate"></i>
-                                    <i class="fas fa-star product__panel-rate"></i>
-                                    <i class="fas fa-star product__panel-rate"></i>
-                                    <i class="fas fa-star product__panel-rate"></i>
-                                    <i class="fas fa-star product__panel-rate"></i>
+                            <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
+                                <div class="product__panel-img-wrap">
+                                    <img src="{{$p->image}}" alt="" class="product__panel-img">
                                 </div>
-                                <div class="product__panel-price">
-                                    <span class="product__panel-price-current">
-                                    @php echo number_format($p->price, 0); @endphp
-                                    </span>
+                                
+                                <div class="product__panel-text">
+                                    <h3 class="product__panel-heading">
+                                        <a href="#" class="product__panel-link">{{$p->name}}</a>
+                                    </h3>
+                                    <div class="product__panel-rate-wrap">
+                                        <i class="fas fa-star product__panel-rate"></i>
+                                        <i class="fas fa-star product__panel-rate"></i>
+                                        <i class="fas fa-star product__panel-rate"></i>
+                                        <i class="fas fa-star product__panel-rate"></i>
+                                        <i class="fas fa-star product__panel-rate"></i>
+                                    </div>
+                                    <div class="product__panel-price">
+                                        <span class="product__panel-price-current">
+                                        @php echo number_format($p->price, 0); @endphp
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -363,29 +364,31 @@
                     <div class="row product__panel">
                     @foreach($product as $p)
 
-                        <div class="Samsung-Galaxy-ZFold3-5G product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
                             <div class="product__panel-item-wrap">
-                                <div class="product__panel-img-wrap">
-                                    <img src="{{$p->image}}" alt="" class="product__panel-img">
-                                </div>
-                                
-                                <div class="product__panel-text">
-                                    <h3 class="product__panel-heading">
-                                        <a href="#" class="product__panel-link">{{$p->name}}</a>
-                                    </h3>
-                                    <div class="product__panel-rate-wrap">
-                                        <i class="fas fa-star product__panel-rate"></i>
-                                        <i class="fas fa-star product__panel-rate"></i>
-                                        <i class="fas fa-star product__panel-rate"></i>
-                                        <i class="fas fa-star product__panel-rate"></i>
-                                        <i class="fas fa-star product__panel-rate"></i>
+                                <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
+                                    <div class="product__panel-img-wrap">
+                                        <img src="{{$p->image}}" alt="" class="product__panel-img">
                                     </div>
-                                    <div class="product__panel-price">
-                                        <span class="product__panel-price-current">
-                                        @php echo number_format($p->price, 0); @endphp
-                                        </span>
+                                    
+                                    <div class="product__panel-text">
+                                        <h3 class="product__panel-heading">
+                                            <a href="#" class="product__panel-link">{{$p->name}}</a>
+                                        </h3>
+                                        <div class="product__panel-rate-wrap">
+                                            <i class="fas fa-star product__panel-rate"></i>
+                                            <i class="fas fa-star product__panel-rate"></i>
+                                            <i class="fas fa-star product__panel-rate"></i>
+                                            <i class="fas fa-star product__panel-rate"></i>
+                                            <i class="fas fa-star product__panel-rate"></i>
+                                        </div>
+                                        <div class="product__panel-price">
+                                            <span class="product__panel-price-current">
+                                            @php echo number_format($p->price, 0); @endphp
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -395,181 +398,8 @@
         </div>
     </section>
     <!--end product -->
-
-    <!-- post -->
-    <section class="posts">
-        <div class="container">
-            <div class="slide-user-online">
-                <div class="swiper mySwiper container">
-                    <div class="swiper-wrapper content">
-                        
-                        <div class="swiper-slide card ">
-                            <div class="card-content">
-                                <div class="image">
-                                    <img src="images/hien.jpg"  alt="">
-                                </div>
-                                <div class="name-profession">
-                                    <span class="name">Hiền mỏ chu</span>
-                                    <span class="profession">(Nhân viên tư vấn)</span>
-                                </div>
-                                <div class="button">
-                                    <button class="aboutMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Liên hệ
-                                        </a>
-                                    </button>
-                                    <button class="hireMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Nhắn tin
-                                        </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card ">
-                            <div class="card-content">
-                                <div class="image">
-                                    <img src="images/hong.jpg"  alt="">
-                                </div>
-                                <div class="name-profession">
-                                    <span class="name">Bích Hồng</span>
-                                    <span class="profession">(Nhân viên tư vấn)</span>
-                                </div>
-                                <div class="button">
-                                    <button class="aboutMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Liên hệ
-                                        </a>
-                                    </button>
-                                    <button class="hireMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Nhắn tin
-                                        </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card ">
-                            <div class="card-content">
-                                <div class="image">
-                                    <img src="images/hung.jpg"  alt="">
-                                </div>
-                                <div class="name-profession">
-                                    <span class="name">Hùng Bê đê</span>
-                                    <span class="profession">(Nhân viên tư vấn)</span>
-                                </div>
-                                <div class="button">
-                                    <button class="aboutMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Liên hệ
-                                        </a>
-                                    </button>
-                                    <button class="hireMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Nhắn tin
-                                        </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card ">
-                            <div class="card-content">
-                                <div class="image">
-                                    <img src="images/vi.jpg"  alt="">
-                                </div>
-                                <div class="name-profession">
-                                    <span class="name">Vi dep gai</span>
-                                    <span class="profession">(Nhân viên tư vấn)</span>
-                                </div>
-                                <div class="button">
-                                    <button class="aboutMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Liên hệ
-                                        </a>
-                                    </button>
-                                    <button class="hireMe">
-                                        <a href="javascript:0">
-                                            <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                            Nhắn tin
-                                        </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- end post -->
-    <section class ="Cart_Product">
-        <i class="fas fa-times"></i>
-        <h2 style="text-align: center; margin-bottom: 20px; color: tomato;"> GIỎ HÀNG CỦA BẠN</h2>
-        <form action="">
-            <table class="tbCard tbCard-bordered" >
-                <thead>
-                    <tr >
-                        <th>Sản Phẩm</th>
-                        <th>Giá</th>
-                        <th>Số Lượng</th>
-                        <th>Đơn giá</th>
-                    </tr>
-                </thead>
-                <tbody class="tbd">
-                    <!-- <tr>
-                        <td class="cart__body-name-title" style=" padding: 8px;  font-size: 1.5rem;">Oppo reno 4</td>
-                        <td style=" padding: 8px;  font-size: 1.5rem;"><span>76.800đ</span></td>
-                        <td style=" padding: 8px;  font-size: 1.5rem;" ><input class="quantity" style="width:65px; outline:none;text-align:center" type="number" value="1" min="1"/></td>
-                        <td style = "cursor: pointer; padding: 8px;  font-size: 1.5rem;">Xóa</td>
-                    </tr> -->
-                </tbody>
-            </table>
-            <br>
-            <div style="text-align:right;color:red" class="price_total">
-                <p style="font-weight: bold; font-size: 1.5rem; padding: 20px;">Tổng Tiền: <Span style="font-size: 1.5rem;">0</Span>  <sup>vnd</sup></p>
-            </div>
-            <div class="Order">
-                <h3 class="doimausale">
-                    Quý khách vui lòng để lại thông tin cá nhân để mua hàng
-                </h3>
-                <form id ="FormOrderP" action="" method="post">
-                    <div>
-                        <input type="text" id="Customer_Name" aria-describedby="emailHelp" placeholder="Họ tên của bạn..." required>
-                        <span class="required"></span>
-                    </div>
-                    <div>
-                        <input type="number" id="Customer-Phone" aria-describedby="emailHelp" placeholder="Số điện thoại của bạn..." required>
-                        <span class="required"></span>
-                    </div>
-                    <div>
-                        <input type="text" id="Customer-address" aria-describedby="emailHelp" placeholder="Địa chỉ của bạn..." required>
-                        <span class="required"></span>
-                    </div>
-                    <p>Bạn muốn mua điện thoại trả góp bao nhiều tháng?</p>
-                    <label class="radio-inline"><input type="radio" name="optradio" checked>3 Tháng</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">6 Tháng</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">9 Tháng</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">12 Tháng</label>
-                    <textarea name="" id="" cols="200" rows="15" placeholder="Ghi chú..."></textarea> 
-                    <button onclick="submitOrder()" class="btn btn-primary">Gửi liên hệ</button>
-                </form>
-            </div>
-            <button onclick="btorder()" class="bto">
-                Đặt hàng
-            </button>
-        </form>
-    </section>
-
+    
     <div class="main__modal">
         <div class="modal__overlay"></div>
         <div class="modal__body">
@@ -577,14 +407,14 @@
             <div class=" sale-off">
                 <div class="sale-off__container">
                     <h2 class="sale-off__heading">
-                        Nhận phiếu giảm giá <span class="sale-off__sp">40%</span>  khi mua <br> <span class="sale-off__name">Sản phẩm Quạt Tản Nhiệt ORIX 20x20x6CM MR20060 220VAC</span>  tại Shop Linh kiện ÍCNEWS
+                        Nhận phiếu giảm giá <span class="sale-off__sp">40%</span>  khi mua <br> <span class="sale-off__name">{{$p->name}}</span>  tại Shop Linh kiện ÍCNEWS
                     </h2>
                     <div class="sale-off__img">
-                        <img src="images/orix_20x20.jpg" width="300">
+                        <img src="{{$p->image}}" width="300">
                     </div>
                     
-                    <a href="Samsung-Galaxy-Zlip3-5G.html" class="sale-off__link">
-                        <button class="sale-off__btn">Mua ngay</button>
+                    <a href="{{ route('prodDetail', ['id'=>$p->id])}}"  class="sale-off__link">
+                        <button class="sale-off__btn">Xem ngay</button>
                     </a>
                 </div>
 
@@ -595,44 +425,5 @@
             </div>
         </div>
     </div>
-    </div>
-    <script src="js/jq.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/link.js"></script>
-    <script src="js/card.js"></script>
-    <script> 
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        slidesPerGroup: 1,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 5,
-
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            950: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-            },
-
-        },
-    });
-
-</script>
-
 @stop

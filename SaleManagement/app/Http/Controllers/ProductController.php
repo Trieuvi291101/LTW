@@ -18,7 +18,8 @@ class ProductController extends Controller
     }
     public function addProduct(){
        $category = Category::All();
-       return view('addProduct',compact('category'));
+       $pro = Product::All();
+       return view('addProduct',compact('category', 'pro'));
     }
     public function insertProduct(Request $request)
     {
@@ -29,9 +30,8 @@ class ProductController extends Controller
             $filename= $request -> fileUpload -> getClientOriginalName();
             $request -> fileUpload -> move('images/', $filename);
         }
-        $newid = Product::max('id');
         $product = Product::create([
-            'id' => $request -> newid+21,
+
             'name' => $request -> name,
             'description' => $request -> description,
             'price' => $request -> price,

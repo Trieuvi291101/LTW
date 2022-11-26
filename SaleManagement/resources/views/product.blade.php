@@ -84,7 +84,7 @@
                         <div class="product__panel-item-wrap">
                             <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
                                 <div class="product__panel-img-wrap">
-                                    <img src="{{$p->image}}" alt="" class="product__panel-img">
+                                    <img src="/images/{{$p->image}}" alt="" class="product__panel-img">
                                 </div>
                                 
                                 <div class="product__panel-text">
@@ -368,7 +368,7 @@
                             <div class="product__panel-item-wrap">
                                 <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
                                     <div class="product__panel-img-wrap">
-                                        <img src="{{$p->image}}" alt="" class="product__panel-img">
+                                        <img src="/images/{{$p->image}}" alt="" class="product__panel-img">
                                     </div>
                                     
                                     <div class="product__panel-text">
@@ -407,12 +407,12 @@
             <div class=" sale-off">
                 <div class="sale-off__container">
                     <h2 class="sale-off__heading">
-                        Nhận phiếu giảm giá <span class="sale-off__sp">40%</span>  khi mua <br> <span class="sale-off__name">{{$p->name}}</span>  tại Shop Linh kiện ÍCNEWS
+                        Nhận phiếu giảm giá <span class="sale-off__sp">40%</span>  khi mua sản phẩm mới ra mắt tại Shop Linh kiện ÍCNEWS
                     </h2>
                     <div class="sale-off__img">
-                        <img src="{{$p->image}}" width="300">
+                        <img src="/images/{{$p->image}}" width="300">
                     </div>
-                    
+                    <span class="sale-off__name">{{$p->name}}</span><br>
                     <a href="{{ route('prodDetail', ['id'=>$p->id])}}"  class="sale-off__link">
                         <button class="sale-off__btn">Xem ngay</button>
                     </a>

@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="slide__left product__main-img col-lg-4 col-md-4 col-sm-12">
                            
-                            <img src="{{$product->image}}" class="d-block w-100" alt="...">
+                            <img src="/images/{{$product->image}}" class="d-block w-100" alt="...">
                                     
                         </div>
 
@@ -46,6 +46,8 @@
                             <div class="product__main-info-rate-wrap">
                                 <i class="fas fa-star product__main-info-rate"></i>
                                 <i class="fas fa-star product__main-info-rate"></i>
+                                <i class="fas fa-star product__main-info-rate"></i>
+                                <i class="fas fa-star product__main-info-rate"></i>
                                 
                             </div>
 
@@ -61,7 +63,7 @@
                             
 
                             <div class="product__main-info-description">
-                                MatePad 11 - chiếc máy tính bảng Huawei với lối thiết kế tối giản nhưng vẫn toát lên vẻ sang trọng, sở hữu trong mình cấu hình mạnh mẽ, màn hình lớn cùng một viên pin trâu có thể đáp ứng được hầu hết các tác vụ làm việc, học tập hay giải trí. 
+                                 {{$product->description}}
                             </div> 
 
                             <div class="product__main-info-cart">
@@ -219,7 +221,7 @@
                                     Sản phẩm chính hãng
                                 </p>
                                 <span>
-                                    Bảo hành chính hãng điện thoại 1 năm tại các trung tâm bảo hành hãng
+                                    Bảo hành chính hãng linh kiện điện tử 1 năm tại các trung tâm bảo hành hãng
                                 </span>
                             </div>
                         </div>

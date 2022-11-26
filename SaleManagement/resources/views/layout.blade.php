@@ -7,6 +7,8 @@
     <link href="images1/iconweb.PNG" rel="shortcut icon"/>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="js/vendor.min.js"></script>
     <script src="js/flickity.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
@@ -16,9 +18,11 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/flickity.min.css">
     <link rel="stylesheet" type="text/css" href="css/app.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icons.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 </head>
 <body>

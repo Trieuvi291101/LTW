@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Trang chủ - Linh kiện ÍCNEWS</title>
     <link href="images1/iconweb.PNG" rel="shortcut icon"/>
     <script src="js/jquery-3.3.1.js"></script>
@@ -23,6 +26,14 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
     
 </head>
 <body>
@@ -82,7 +93,7 @@
                 </div>   
             </div>
             <!--end header bottom -->
-
+            
             <!-- header nav -->
             <div class="header__nav">
                 <div class="container">
@@ -107,6 +118,40 @@
                                 <li class="header__nav-item">
                                     <a href="{{route('prodAdd')}}" class="header__nav-link">Thêm sản phẩm</a>
                                 </li>
+                                <!-- Authentication Links -->
+                                <ul class="navbar-nav ms-auto" >
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="header__nav-item">
+                                        <a class="header__nav-link" href="{{ route('login') }}">Đăng nhập</a>
+                                    </li>
+                                @endif
+
+                                @if (Route::has('register'))
+                                    <li class="header__nav-item">
+                                        <a  class="header__nav-link" href="{{ route('register') }}">Đăng ký</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class=" header__nav-item dropdown">
+                                    <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            <h3>Đăng xuất</h3>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                                </ul>
                             </ul>
                         </div>
                     </section>

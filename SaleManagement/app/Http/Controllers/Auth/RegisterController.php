@@ -39,8 +39,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        
     }
-
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'user_role' => ['required', 'int', 'max:255'],
             'active' => ['required', 'int', 'max:255'],
-            'phone' => ['required', 'int', 'max:255'],
+            'phone' => ['required', 'string', 'max:45'],
             'birthday' => ['required', 'date', 'max:255'],
             'gender_id' => ['required', 'int', 'max:255'],
             'address_id' => ['required', 'int', 'max:255'],
@@ -61,6 +62,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+    
 
     /**
      * Create a new user instance after a valid registration.
@@ -70,6 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       
         return User::create([
             'name' => $data['name'],
             'user_role' => $data['user_role'],

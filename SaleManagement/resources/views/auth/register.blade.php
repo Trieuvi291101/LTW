@@ -27,9 +27,12 @@
                         <div class="row mb-3">
                             <label for="user_role" class="col-md-4 col-form-label text-md-end">Chức vụ</label>
 
-                            <div class="col-md-6">
-                                <input id="user_role" type="text" class="form-control @error('user_role') is-invalid @enderror" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus>
-
+                            <div class="col-md-6 ">
+                                <!-- <input id="user_role" type="text" class="form-control @error('user_role') is-invalid @enderror" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus> -->
+                                <select class="form-control @error('user_role') is-invalid @enderror" id="user_role" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus>
+                                    <option value="1">Customer</option>
+                                    <option value="2">Seller</option>
+                                </select>
                                 @error('user_role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -41,8 +44,11 @@
                             <label for="gender_id" class="col-md-4 col-form-label text-md-end">Giới tính</label>
 
                             <div class="col-md-6">
-                                <input id="gender_id" type="text" class="form-control @error('gender_id') is-invalid @enderror" name="gender_id" value="{{ old('gender_id') }}" required autocomplete="gender_id" autofocus>
-
+                                <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="gender_id" value="{{ old('gender_id') }}" required autocomplete="gender_id" autofocus>
+                                    <option value="1">Nam</option>
+                                    <option value="2">Nữ</option>
+                                    <option value="3">Khác</option>
+                                </select>
                                 @error('gender_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -67,8 +73,8 @@
                             <label for="birthday" class="col-md-4 col-form-label text-md-end">Ngày sinh</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
-
+                                <!-- <input id="birthday" type="text" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus> -->
+                                <input class="form-control @error('birthday') is-invalid @enderror" id="birthday" type="date" id="customer-birth" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus/>
                                 @error('birthday')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -93,7 +99,7 @@
                             <label for="address_id" class="col-md-4 col-form-label text-md-end">Địa chỉ</label>
 
                             <div class="col-md-6">
-                                <input id="address_id" type="int" class="form-control @error('address_id') is-invalid @enderror" name="address_id" value="{{ old('address_id') }}" required autocomplete="address_id" autofocus>
+                                <input id="address_id" type="int" value="1" class="form-control @error('address_id') is-invalid @enderror" name="address_id" value="{{ old('address_id') }}" required autocomplete="address_id" autofocus>
 
                                 @error('address_id')
                                     <span class="invalid-feedback" role="alert">

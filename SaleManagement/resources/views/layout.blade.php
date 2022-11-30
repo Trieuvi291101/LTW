@@ -115,11 +115,7 @@
                                 <li class="header__nav-item">
                                     <a href="contact.html" class="header__nav-link">Liên hệ</a>
                                 </li>
-                                <li class="header__nav-item">
-                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Thêm sản phẩm</a>
-                                </li>
                                 <!-- Authentication Links -->
-                                <ul class="navbar-nav ms-auto" >
                             @guest
                                 @if (Route::has('login'))
                                     <li class="header__nav-item">
@@ -133,6 +129,23 @@
                                     </li>
                                 @endif
                             @else
+                                <li class="header__nav-item">
+                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Thêm sản phẩm</a>
+                                </li>
+                                <li class="header__nav-item dropdown">
+                                    <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Quản lý
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{route('indexUser')}}">
+                                            <h3>Nhân viên</h3>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
                                 <li class=" header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
@@ -151,7 +164,6 @@
                                     </div>
                                 </li>
                             @endguest
-                                </ul>
                             </ul>
                         </div>
                     </section>

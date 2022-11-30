@@ -22,6 +22,8 @@ Route::get('product', ['as'=>'index', 'uses'=>'ProductController@index']);
 Route::get('productDetail/{id}', ['as'=>'prodDetail', 'uses'=>'ProductController@getProductDetail']);
 Route::get('addproduct', ['as'=>'prodAdd', 'uses'=>'ProductController@addProduct']);
 Route::post('', ['as'=>'insert', 'uses'=>'ProductController@insertProduct']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', ['as'=>'indexUser', 'uses'=>'UserController@indexUser']);

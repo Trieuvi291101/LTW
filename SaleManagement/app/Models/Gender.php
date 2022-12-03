@@ -9,6 +9,6 @@ class Gender extends Model
 public $timestamps = false;
 protected $fillable=['id','name'];
  public function User(){
- return $this->hasMany("Gender::class");
+ return $this->hasMany(User::class);
  }
 }

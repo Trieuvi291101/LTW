@@ -11,13 +11,12 @@ class UserController extends Controller
     public function indexUser()
     {
         $user = User::all();
-        $gender = Gender::all();
-        $userRole = UserRole::all();
-        return view('user',compact('user', 'gender','userRole'));
+        return view('user',compact('user'));
     }
-    public function getUserDetail($UserId){
-        $user = User::where('id', $UserId)->first();
+    
+    public function getUserDetail($id){
+        $user = User::where('id', $id)->first();
         
-        return view('userDetail',compact('user'));
+        return view('userDetail',compact('users'));
     }
 }

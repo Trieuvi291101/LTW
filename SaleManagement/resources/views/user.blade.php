@@ -26,21 +26,31 @@
                     <th scope="col">Giới tính</th>
                     <th scope="col">Số điện thoại</th>
                     <th scope="col">Ngày sinh</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Địa chỉ</th>
                     <th scope="col">Chức vụ</th>
                     <th scope="col">Ngày tạo</th>
                     <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach( $user as $u)
                         <tr>
                             <th scope="row">NV{{$u->id}}</th>
                             <td> {{$u->name}}</td>
                             <td>{{$u->email}}</td>
-                            <td>{{$u->gender_id}}</td>
+                            <td>{{$u->Gender->name}}</td>
                             <td>{{$u->phone}}</td>
                             <td>{{$u->birthday}}</td>
-                            <td>{{$u->user_role}}</td>
+                            <td>
+                            <div >
+                                    <img src="/images/{{$u->image}}" alt="" style="width: 50px;">
+                                </div>
+                            </td>
+                            <td>{{$u->Address->info}},</br> {{$u->Address->Ward->info}},</br>
+                                 {{$u->Address->Ward->District->info}},</br> {{$u->Address->Ward->District->Province->info}}</td>
+                            <td>{{$u->UserRole->name}}</td>
                             <td>{{$u->created_at}}</td>
                             <td>
                                 <div class="dropdown notification-list">

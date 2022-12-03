@@ -10,6 +10,6 @@ public $timestamps = false;
 protected $fillable=['id','name','description','price','manufacturer','image','created_date','categoryId','num','active'];
  public function Category()
  {
- return $this->belongsTo("category::class");
+ return $this->belongsTo(category::class);
  } 
 }

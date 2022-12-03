@@ -25,15 +25,15 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="user_role" class="col-md-4 col-form-label text-md-end">Chức vụ</label>
+                            <label for="user_role_id" class="col-md-4 col-form-label text-md-end">Chức vụ</label>
 
                             <div class="col-md-6 ">
                                 <!-- <input id="user_role" type="text" class="form-control @error('user_role') is-invalid @enderror" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus> -->
-                                <select class="form-control @error('user_role') is-invalid @enderror" id="user_role" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus>
+                                <select class="form-control @error('user_role_id') is-invalid @enderror" id="user_role_id" name="user_role_id" value="{{ old('user_role_id') }}" required autocomplete="user_role_id" autofocus>
                                     <option value="1">Customer</option>
                                     <option value="2">Seller</option>
                                 </select>
-                                @error('user_role')
+                                @error('user_role_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

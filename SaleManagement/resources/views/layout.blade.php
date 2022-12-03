@@ -109,11 +109,11 @@
                                     <a href="{{route('index')}}" class="header__nav-link">Trang chủ</a>
                                 </li>
                                 <li class="header__nav-item">
-                                    <a href="category.html" class="header__nav-link">Danh mục sản phẩm</a>
+                                    <a href="#categoryList" class="header__nav-link">Danh mục sản phẩm</a>
                                 </li>
                                 
                                 <li class="header__nav-item">
-                                    <a href="contact.html" class="header__nav-link">Liên hệ</a>
+                                    <a href="#info" class="header__nav-link">Liên hệ</a>
                                 </li>
                                 <!-- Authentication Links -->
                             @guest
@@ -140,14 +140,14 @@
                                         <a class="dropdown-item" href="{{route('indexUser')}}">
                                             <h3>Nhân viên</h3>
                                         </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
                                     </div>
                                 </li>
+                                <li class="header__nav-item">
+                                    <a href="{{ route('uDetail', ['id'=>auth ()->user ()->id])}}" class="header__nav-link">
+                                        Tài khoản</a>
+                                </li>
                                 <li class=" header__nav-item dropdown">
-                                    <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
@@ -171,21 +171,21 @@
             </div>
         </header>
         <!--end header nav -->
-        @yield('content')
+        @yield('content') 
         <!-- post -->
-        <section class="posts">
-            <div class="container">
+        <section class="posts" id="info" >
+            <div class="container" >
                 <div class="slide-user-online">
                     <div class="swiper mySwiper container">
                         <div class="swiper-wrapper content">
-                            
+                            @foreach( $user as $u)
                             <div class="swiper-slide card ">
                                 <div class="card-content">
                                     <div class="image">
-                                        <img src="images/hien.jpg"  alt="">
+                                        <img src="/images/{{$u->image}}" alt="">
                                     </div>
                                     <div class="name-profession">
-                                        <span class="name">Hiền mỏ chu</span>
+                                        <span class="name">{{$u->name}}</span>
                                         <span class="profession">(Nhân viên tư vấn)</span>
                                     </div>
                                     <div class="button">
@@ -204,81 +204,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide card ">
-                                <div class="card-content">
-                                    <div class="image">
-                                        <img src="images/hong.jpg"  alt="">
-                                    </div>
-                                    <div class="name-profession">
-                                        <span class="name">Bích Hồng</span>
-                                        <span class="profession">(Nhân viên tư vấn)</span>
-                                    </div>
-                                    <div class="button">
-                                        <button class="aboutMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Liên hệ
-                                            </a>
-                                        </button>
-                                        <button class="hireMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Nhắn tin
-                                            </a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide card ">
-                                <div class="card-content">
-                                    <div class="image">
-                                        <img src="images/hung.jpg"  alt="">
-                                    </div>
-                                    <div class="name-profession">
-                                        <span class="name">Hùng Bê đê</span>
-                                        <span class="profession">(Nhân viên tư vấn)</span>
-                                    </div>
-                                    <div class="button">
-                                        <button class="aboutMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Liên hệ
-                                            </a>
-                                        </button>
-                                        <button class="hireMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Nhắn tin
-                                            </a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide card ">
-                                <div class="card-content">
-                                    <div class="image">
-                                        <img src="images/vi.jpg"  alt="">
-                                    </div>
-                                    <div class="name-profession">
-                                        <span class="name">Vi dep gai</span>
-                                        <span class="profession">(Nhân viên tư vấn)</span>
-                                    </div>
-                                    <div class="button">
-                                        <button class="aboutMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Liên hệ
-                                            </a>
-                                        </button>
-                                        <button class="hireMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Nhắn tin
-                                            </a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -289,7 +215,7 @@
         <!-- footer -->
         <footer>
             <section class="footer__top">
-                <div class="container">
+                <div class="container" >
                     <div class="row">
                         <article class="footer__top-intro col-lg-5 col-md-4 col-sm-6">
                             <h4 class="footer__top-intro-heading">

@@ -9,6 +9,6 @@ class Province extends Model
 public $timestamps = false;
 protected $fillable=['id','info'];
  public function District(){
- return $this->hasMany("District::class");
+ return $this->hasMany(District::class);
  }
 }

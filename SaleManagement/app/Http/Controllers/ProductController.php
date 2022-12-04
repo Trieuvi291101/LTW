@@ -15,13 +15,15 @@ class ProductController extends Controller
     }
     public function getProductDetail($ProductId){
         $product = Product::where('id', $ProductId)->first();
+        $user = User::all();  //tv
         
-        return view('productDetail',compact('product'));
+        return view('productDetail',compact('product' ,'user'));
     }
     public function addProduct(){
        $category = Category::All();
        $pro = Product::All();
-       return view('addProduct',compact('category', 'pro'));
+       $user = User::all();  //tv
+       return view('addProduct',compact('category', 'pro' ,'user'));
     }
     public function insertProduct(Request $request)
     {
@@ -45,7 +47,8 @@ class ProductController extends Controller
             'active' => 1, 
         ]);
         $product = Product::All();
-        return view('product',compact('product'));
+        $user = User::all();  //tv
+        return view('product',compact('product','user'));
 
 
     }

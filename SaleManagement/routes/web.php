@@ -27,4 +27,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', ['as'=>'indexUser', 'uses'=>'UserController@indexUser']);
-Route::get('/userDetail/{id}', ['as'=>'uDetail', 'uses'=>'UserController@getUserDetail']);
+Route::get('userDetail/{id}', ['as'=>'uDetail', 'uses'=>'UserController@getUserDetail']);

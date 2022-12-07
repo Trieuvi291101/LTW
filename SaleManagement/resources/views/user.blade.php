@@ -16,6 +16,20 @@
 @endif
 <div class="row">
     <div class="col-12">
+            <div class="row">
+                <div class="col-6 col-md-2 form-group">
+                    <input name="fromDate" class="form-control" placeholder="Từ ngày" autocomplete="off" onfocus="(this.type='date')" />
+                </div>
+                <div class="col-6 col-md-2 form-group">
+                    <input name="toDate" class="form-control" placeholder="Đến ngày" autocomplete="off" onfocus="(this.type='date')" />
+                </div>
+                <div class="col-6 col-md-4 form-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên">
+                </div>
+                <div class="col-6 col-md-2 form-group">
+                    <button class="btn btn-success form-control" style="background-color: #FFE7A0;" type="submit">Tìm kiếm </button>
+                </div>
+            </div>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -37,7 +51,10 @@
                     
                     @foreach( $user as $u)
                         <tr>
-                            <th scope="row">NV{{$u->id}}</th>
+                        <td class="text-center">
+                        NV{{$u->id}}
+                        </td>
+                            <!-- <th scope="row">NV{{$u->id}}</th> -->
                             <td> {{$u->name}}</td>
                             <td>{{$u->email}}</td>
                             <td>{{$u->Gender->name}}</td>

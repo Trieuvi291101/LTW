@@ -9,6 +9,11 @@ use Auth;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function indexUser()
     {
         $user = User::all();
@@ -16,7 +21,12 @@ class UserController extends Controller
     }
     
     public function getUserDetail($id){
-        $user = User::where('id', $id)->first();
-        return view('userDetail',compact('user'));
+
+
+        $users = User::where('id', $id)->first();
+        $user = User::all();
+        
+        return view('userDetail',compact('users', 'user'));
+
     }
 }

@@ -82,33 +82,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="active" class="col-md-4 col-form-label text-md-end">Active</label>
-
-                            <div class="col-md-6">
-                                <input id="active" type="int" value="1" class="form-control @error('active') is-invalid @enderror" name="active" value="{{ old('active') }}" required autocomplete="active" autofocus>
-
-                                @error('active')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="address_id" class="col-md-4 col-form-label text-md-end">Địa chỉ</label>
-
-                            <div class="col-md-6">
-                                <input id="address_id" type="int" value="1" class="form-control @error('address_id') is-invalid @enderror" name="address_id" value="{{ old('address_id') }}" required autocomplete="address_id" autofocus>
-
-                                @error('address_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
+                        
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">Email </label>
 

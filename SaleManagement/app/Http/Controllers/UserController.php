@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserRole;
 use App\Models\Gender;
+use Auth;
 
 
 class UserController extends Controller

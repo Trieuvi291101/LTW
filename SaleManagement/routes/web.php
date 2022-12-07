@@ -31,3 +31,4 @@ Route::get('/userDetail/{id}', ['as'=>'uDetail', 'uses'=>'UserController@getUser
 
 Route::get('/productDetail/{id}/{UserId}', ['as'=>'addtocart', 'uses'=>'CartController@addProductToCart']);
 Route::get('/productDetail/remove/{id}/{UserId}', ['as'=>'removeproduct', 'uses'=>'CartController@removeProduct']);
+

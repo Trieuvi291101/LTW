@@ -105,8 +105,12 @@
                                     <a href="contact.html" class="header__nav-link">Liên hệ</a>
                                 </li>
                                 <li class="header__nav-item">
-                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Thêm sản phẩm</a>
+                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
                                 </li>
+                                <li class="header__nav-item">
+                                    <a href="{{route('Stars')}}" class="header__nav-link">Thống kê</a>
+                                </li>
+                                
                             </ul>
                         </div>
                     </section>

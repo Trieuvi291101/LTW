@@ -8,22 +8,14 @@
             <div class="row">
                 <nav class="menu__nav col-lg-3 col-md-12 col-sm-0">
                     <ul class="menu__list">
+                        @foreach( $category as $c)
                         <li class="menu__item menu__item--active">
                             <a href="#" class="menu__link">
-                            <img src="images/item/phone.jfif" alt=""  class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
-                            Điện thoại</a>
+                                {{$c->name}}
+                            </a>
                         </li>
-                        <li class="menu__item">
-                            <a href="#" class="menu__link">
-                                <img src="images/item/tablet.webp" alt="" class="menu__item-icon"  viewBox="0 0 512 512" width="1012" height="512">
-
-                            Máy tính bảng</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="#" class="menu__link">
-                            <img src="images/item/laptop.jfif" alt="" class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
-                            Laptop</a>
-                        </li>
+                      @endforeach  
+                       
                     </ul>
                 </nav>
                 <div class="slider col-lg-9 col-md-12 col-sm-0">

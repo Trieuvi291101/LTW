@@ -11,11 +11,11 @@ protected $fillable=['id','info','province_id' ];
 
  public function Ward()
  {
- return $this->hasMany("ward::class");
+ return $this->hasMany(Ward::class);
  }
 
 public function Province()
 {
-    return $this->belongsTo("district::class");
+    return $this->belongsTo(District::class);
 } 
 }

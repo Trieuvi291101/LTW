@@ -11,17 +11,18 @@ class ProductController extends Controller
     {
         $product = Product::all();
         $user = User::all();  //tv
-        return view('product',compact('product'),compact('user'));
+        return view('product',compact('product','user'));
     }
     public function getProductDetail($ProductId){
         $product = Product::where('id', $ProductId)->first();
-        
-        return view('productDetail',compact('product'));
+        $user = User::all();
+        return view('productDetail',compact('product','user'));
     }
     public function addProduct(){
        $category = Category::All();
        $pro = Product::All();
-       return view('addProduct',compact('category', 'pro'));
+       $user = User::all();  //tv
+       return view('addProduct',compact('category', 'pro','user'));
     }
     public function insertProduct(Request $request)
     {
@@ -45,8 +46,7 @@ class ProductController extends Controller
             'active' => 1, 
         ]);
         $product = Product::All();
-        return view('product',compact('product'));
-
-
+        $user = User::all();  //tv
+        return view('product',compact('product','user'));
     }
 }

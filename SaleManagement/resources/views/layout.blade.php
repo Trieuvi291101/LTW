@@ -83,9 +83,9 @@
                             </div>
                         </div>
 
-                        <a href="#" onclick="showCard()" class="col-lg-1 col-md-1 col-sm-0 header__cart">
+                        <a href="javascript:;" onclick="showCard()" class="col-lg-1 col-md-1 col-sm-0 header__cart">
                             <div class="header__cart-icon-wrap">
-                                <span class="header__notice">0</span>
+                                <span class="header__notice">{{count($cart)}}</span>
                                 <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
                             </div>
                         </a>
@@ -308,53 +308,73 @@
             <i class="fas fa-times"></i>
             <h2 style="text-align: center; margin-bottom: 20px; color: tomato;"> GIỎ HÀNG CỦA BẠN</h2>
             <form action="">
-                <table class="tbCard tbCard-bordered" >
+                <table class="tbCard tbCard-bordered" id="table-cart">
                     <thead>
                         <tr >
+                            <th></th>
                             <th>Sản Phẩm</th>
-                            <th>Giá</th>
-                            <th>Số Lượng</th>
                             <th>Đơn giá</th>
+                            <th>Số Lượng</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody class="tbd">
-                        <!-- <tr>
-                            <td class="cart__body-name-title" style=" padding: 8px;  font-size: 1.5rem;">Oppo reno 4</td>
-                            <td style=" padding: 8px;  font-size: 1.5rem;"><span>76.800đ</span></td>
-                            <td style=" padding: 8px;  font-size: 1.5rem;" ><input class="quantity" style="width:65px; outline:none;text-align:center" type="number" value="1" min="1"/></td>
-                            <td style = "cursor: pointer; padding: 8px;  font-size: 1.5rem;">Xóa</td>
-                        </tr> -->
+                        @foreach ($cart as $c)
+                        <tr id="tr{{$c->id}}">
+                            <td>
+                                <input class="check" id="check{{$c->id}}" onclick="cartTotal()" type="checkbox" name="product" value="{{$c->id}}">
+                            </td>
+                            <td class="cart__body-name-title" style=" padding: 8px;  font-size: 1.5rem;">
+                                <span class= "title" style="font-size: 1.5rem">{{$c->Product->name}}</span>
+                            </td>
+                            <td style=" padding: 8px;  font-size: 1.5rem;">
+                                <span class="price" style="font-size: 1.5rem">{{$c->Product->price}}</span>
+                            </td>
+                            <td style=" padding: 8px;  font-size: 1.5rem;" >
+                                <input class="quantity" style="width:65px;text-align:center; cursor:pointer; font-size: 1.5rem" type="number"  min="1" max="100" name="quantity" value="{{$c->quantity}}">
+                            </td>
+                            <td style = "cursor: pointer; padding: 8px;  font-size: 1.5rem;">
+                                <a href="{{route('removeproduct', ['id'=>$c->Product->id, 'UserId'=>Auth::user()->id])}}" style="font-size: 1.5rem;">Xóa</a>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <br>
                 <div style="text-align:right;color:red" class="price_total">
-                    <p style="font-weight: bold; font-size: 1.5rem; padding: 20px;">Tổng Tiền: <Span style="font-size: 1.5rem;">0</Span>  <sup>vnd</sup></p>
+                    <p style="font-weight: bold; font-size: 1.5rem; padding: 20px;">Tổng Tiền: <Span id="total-money" style="font-size: 1.5rem;">0</Span>  <sup>vnd</sup></p>
                 </div>
                 <div class="Order">
+                    @if(Auth::user())
                     <h3 class="doimausale">
                         Quý khách vui lòng để lại thông tin cá nhân để mua hàng
                     </h3>
-                    <form id ="FormOrderP" action="" method="post">
+                    <form id ="FormOrderP" action="" method="get">
                         <div>
-                            <input type="text" id="Customer_Name" aria-describedby="emailHelp" placeholder="Họ tên của bạn..." required>
+                            <input value="{{Auth::user()->name}}" type="text" id="Customer_Name" aria-describedby="emailHelp" placeholder="Họ tên của bạn..." required>
                             <span class="required"></span>
                         </div>
                         <div>
-                            <input type="number" id="Customer-Phone" aria-describedby="emailHelp" placeholder="Số điện thoại của bạn..." required>
+                            <input value="{{Auth::user()->phone}}" type="number" id="Customer-Phone" aria-describedby="emailHelp" placeholder="Số điện thoại của bạn..." required>
                             <span class="required"></span>
                         </div>
                         <div>
-                            <input type="text" id="Customer-address" aria-describedby="emailHelp" placeholder="Địa chỉ của bạn..." required>
+                            <input value="{{Auth::user()->Address}}" type="text" id="Customer-address" aria-describedby="emailHelp" placeholder="Địa chỉ của bạn..." required>
                             <span class="required"></span>
                         </div>
-                        <p>Bạn muốn mua điện thoại trả góp bao nhiều tháng?</p>
+                        <!-- <p>Bạn muốn mua điện thoại trả góp bao nhiều tháng?</p>
                         <label class="radio-inline"><input type="radio" name="optradio" checked>3 Tháng</label>
                         <label class="radio-inline"><input type="radio" name="optradio">6 Tháng</label>
                         <label class="radio-inline"><input type="radio" name="optradio">9 Tháng</label>
                         <label class="radio-inline"><input type="radio" name="optradio">12 Tháng</label>
-                        <textarea name="" id="" cols="200" rows="15" placeholder="Ghi chú..."></textarea> 
+                        <textarea name="" id="" cols="200" rows="15" placeholder="Ghi chú..."></textarea>  -->
                         <button onclick="submitOrder()" class="btn btn-primary">Gửi liên hệ</button>
                     </form>
+                    @else
+                    <h3 class="doimausale">
+                        Vui lòng <a style="font-size: 1.5rem" href="{{ route('login') }}">đăng nhập</a> để mua hàng
+                    </h3>
+                    @endif
                 </div>
                 <button onclick="btorder()" class="bto">
                     Đặt hàng

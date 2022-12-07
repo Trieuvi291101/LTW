@@ -21,9 +21,12 @@ class UserController extends Controller
     }
     
     public function getUserDetail($id){
+
+
         $users = User::where('id', $id)->first();
         $user = User::all();
         
         return view('userDetail',compact('users', 'user'));
+
     }
 }

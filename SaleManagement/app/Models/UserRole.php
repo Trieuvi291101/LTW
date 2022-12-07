@@ -9,6 +9,6 @@ class UserRole extends Model
 public $timestamps = false;
 protected $fillable=['id','name'];
  public function User(){
- return $this->hasMany("User::class","user_role","id");
+ return $this->hasMany(User::class);
  }
 }

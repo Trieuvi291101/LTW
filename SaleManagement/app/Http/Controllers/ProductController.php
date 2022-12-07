@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+
 use Illuminate\Support\Facades\Redirect;
+
+use App\Models\User;
+
 
 class ProductController extends Controller
 {
@@ -12,17 +16,20 @@ class ProductController extends Controller
     {
         $category = Category::paginate(13);
         $product = Product::all();
-        return view('product',compact('category','product'));
+        $user = User::all();  //tv
+        return view('product',compact('product','user', 'category'));
+
     }
     public function getProductDetail($ProductId){
         $product = Product::where('id', $ProductId)->first();
-        
-        return view('productDetail',compact('product'));
+        $user = User::all();
+        return view('productDetail',compact('product','user'));
     }
     public function addProduct(){
         $category = Category::All();
         $pro= Product::paginate(30);
-        return view('addProduct',compact('category', 'pro'));
+        $user = User::all();  //tv
+        return view('addProduct',compact('category', 'pro','user'));
     }
     
     public function insertProduct(Request $request)
@@ -88,6 +95,4 @@ class ProductController extends Controller
         // dd($countpro);
         return view('Stars', compact('countpro'));
     }
-    
-    
 }

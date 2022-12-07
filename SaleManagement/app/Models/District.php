@@ -2,7 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-class Province extends Model
+class District extends Model
 {
  use HasFactory;
  protected $table = "district";
@@ -16,6 +16,8 @@ protected $fillable=['id','info','province_id' ];
 
 public function Province()
 {
-    return $this->belongsTo(District::class);
+
+    return $this->belongsTo(Province::class);
+
 } 
 }

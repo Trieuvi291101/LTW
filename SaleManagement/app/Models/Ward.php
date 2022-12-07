@@ -2,7 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-class Province extends Model
+class Ward extends Model
 {
  use HasFactory;
  protected $table = "ward";
@@ -11,11 +11,11 @@ protected $fillable=['id','info','district_id' ];
 
  public function Address()
  {
- return $this->hasMany("address::class");
+ return $this->hasMany(Address::class);
  }
 
 public function District()
 {
-    return $this->belongsTo("district::class");
+    return $this->belongsTo(District::class);
 } 
 }

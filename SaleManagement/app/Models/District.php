@@ -16,6 +16,8 @@ protected $fillable=['id','info','province_id' ];
 
 public function Province()
 {
+
     return $this->belongsTo(Province::class);
+
 } 
 }

@@ -130,8 +130,14 @@
                                 @endif
                             @else
                                 <li class="header__nav-item">
-                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Thêm sản phẩm</a>
+                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
                                 </li>
+
+                                <li class="header__nav-item">
+                                    <a href="{{route('Stars')}}" class="header__nav-link">Thống kê</a>
+                                </li>
+                                
+
                                 <li class="header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Quản lý
@@ -163,6 +169,7 @@
                                     </div>
                                 </li>
                             @endguest
+
                             </ul>
                         </div>
                     </section>

@@ -4,14 +4,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
-    use HasFactory;
-    protected $table = "product";
-    public $timestamps = false;
-    protected $fillable=['id','name','description','price','manufacturer','image','created_date','categoryId','num','active'];
-    public function Category()
-    {
-        return $this->belongsTo(category::class);
-    } 
+
+   use HasFactory;
+   protected $table = "product";
+   public $timestamps = false;
+   protected $fillable=['id','name','description','price','manufacturer','image','created_date','category_id','num','active'];
+   public function Category()
+   {
+      return $this->belongsTo(Category::class);
+   } 
+
     public function OrderDetail()
     {
         return $this->hasMany(OrderDetail::class, 'product_id', 'id');
@@ -20,4 +22,5 @@ class Product extends Model
     {
         return $this->hasMany(Cart::class, 'product_id', 'id');
     }
+
 }

@@ -23,6 +23,12 @@ Route::get('productDetail/{id}', ['as'=>'prodDetail', 'uses'=>'ProductController
 Route::get('addproduct', ['as'=>'prodAdd', 'uses'=>'ProductController@addProduct']);
 Route::post('', ['as'=>'insert', 'uses'=>'ProductController@insertProduct']);
 
+Route::get('addproduct/{id}', ['as'=>'prodDel', 'uses'=>'ProductController@deletePro']);
+Route::get('EditProduct/{id}', ['as'=>'EditProduct', 'uses'=>'ProductController@editPro']);
+Route::post('editPro2', ['as'=>'editPro2', 'uses'=>'ProductController@editPro2']);
+Route::get('Stars', ['as'=>'Stars', 'uses'=>'ProductController@Stars']);
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -32,4 +38,5 @@ Route::get('/userDetail/{id}', ['as'=>'uDetail', 'uses'=>'UserController@getUser
 
 Route::get('/productDetail/{id}/{UserId}', ['as'=>'addtocart', 'uses'=>'CartController@addProductToCart']);
 Route::get('/productDetail/remove/{id}/{UserId}', ['as'=>'removeproduct', 'uses'=>'CartController@removeProduct']);
+
 

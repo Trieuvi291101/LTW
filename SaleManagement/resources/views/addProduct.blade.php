@@ -21,7 +21,12 @@
                 <div class="thongtin" style="justify-content: center; align-items: center;text-align: center;  margin-bottom: 20px;">
                     <p class ="doimausale" style="font-size: 17px;" >Hãy nhập thông tin sản phẩm cần thêm</p> 
                 </div>
-               
+                @if(Session::has('addsuccess'))
+                    <div class="alert alert-success" style="color: black; font-size: 16px">
+                        {{Session::get('addsuccess')}}
+                    </div>
+                   
+                @endif
                 <form method ="POST" action ="{{route('insert')}}" enctype="multipart/form-data" class="form-horizontal">
                     {{csrf_field()}}
                     <div class="form-group row col-12">
@@ -59,7 +64,7 @@
                     <div class="form-group row col-12">
                         <label class="col-lg-3 ">Loại sản phẩm</label>
                         <div class="col-lg-9">
-                            <select class="form-control" name="categoryId" id="categoryId">
+                            <select class="form-control" name="category_id" id="category_id">
                                 @foreach($category as $c)
                                     <option value="{{$c->id}}">{{$c->name}}</option>
                                 @endforeach
@@ -83,6 +88,12 @@
              <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
+                        @if(Session::has('thongbao'))
+                            <div class="alert alert-danger" style="color: black; font-size: 16px">
+                                {{Session::get('thongbao')}}
+                            </div>
+                            addsuccess
+                        @endif
                         <table class="table table-bordered">
                             <thead class="thead-dark">
                                 <tr>
@@ -105,7 +116,7 @@
                                         <td>  @php echo number_format($p->price, 0); @endphp</td>
                                         <td>{{$p->num}}</td>
                                         <td>{{$p->manufacturer}}</td>
-                                        <td>{{$p->categoryId}}</td>
+                                        <td>{{$p->Category->name}}</td>
                                         <td>
                                             <div class="dropdown notification-list">
                                                 <a  class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -116,12 +127,12 @@
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                                    <a href="#" class="dropdown-item notify-item">
-                                                       
+                                                    <a href="{{route('EditProduct', ['id'=>$p->id])}}" class="dropdown-item notify-item">
+                                                        <i class="fas fa-edit"></i>
                                                         <span class="badge ">Sửa</span>
                                                     </a>
-                                                    <a href="#" class="dropdown-item notify-item">
-                                                        
+                                                    <a href="{{route('prodDel', ['id'=>$p->id])}}" class="dropdown-item notify-item">
+                                                        <i class="fas fa-trash-alt"></i>
                                                         <span class="badge">Xóa</span>
                                                     </a>
                                                 </div>           
@@ -131,6 +142,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                      
                     </div>
                 </div>
             </div>

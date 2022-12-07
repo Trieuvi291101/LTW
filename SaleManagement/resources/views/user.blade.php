@@ -79,12 +79,12 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                        <a href="#" class="dropdown-item notify-item">
-                                            
+                                        <a href="" class="dropdown-item notify-item">
+                                            <i class="fas fa-edit"></i>
                                             <span class="badge ">Sửa</span>
                                         </a>
-                                        <a href="#" class="dropdown-item notify-item">
-                                            
+                                        <a href="{{route('userDel', ['id'=>auth ()->user ()->id])}}" class="dropdown-item notify-item">
+                                            <i class="fas fa-trash-alt"></i>
                                             <span class="badge">Xóa</span>
                                         </a>
                                     </div>           

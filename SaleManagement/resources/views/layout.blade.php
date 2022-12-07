@@ -129,15 +129,15 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="header__nav-item">
-                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
-                                </li>
-
+                                @if (Auth::user()->user_role_id==1)
                                 <li class="header__nav-item">
                                     <a href="{{route('Stars')}}" class="header__nav-link">Thống kê</a>
                                 </li>
-                                
-
+                                @endif
+                                @if (Auth::user()->user_role_id==1 || Auth::user()->user_role_id==3)
+                                <li class="header__nav-item">
+                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
+                                </li>
                                 <li class="header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Quản lý
@@ -148,6 +148,7 @@
                                         </a>
                                     </div>
                                 </li>
+                                @endif
                                 <li class=" header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
@@ -178,46 +179,6 @@
         </header>
         <!--end header nav -->
         @yield('content') 
-        <!-- post -->
-        <section class="posts" id="info" >
-            <div class="container" >
-                <div class="slide-user-online">
-                    <div class="swiper mySwiper container">
-                        <div class="swiper-wrapper content">
-                            @foreach( $user as $u)
-                            <div class="swiper-slide card ">
-                                <div class="card-content">
-                                    <div class="image">
-                                        <img src="/images/{{$u->image}}" alt="">
-                                    </div>
-                                    <div class="name-profession">
-                                        <span class="name">{{$u->name}}</span>
-                                        <span class="profession">(Nhân viên tư vấn)</span>
-                                    </div>
-                                    <div class="button">
-                                        <button class="aboutMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Liên hệ
-                                            </a>
-                                        </button>
-                                        <button class="hireMe">
-                                            <a href="javascript:0">
-                                                <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
-                                                Nhắn tin
-                                            </a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
         <!-- footer -->
         <footer>
             <section class="footer__top">

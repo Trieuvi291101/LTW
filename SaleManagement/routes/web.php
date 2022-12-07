@@ -34,6 +34,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/user', ['as'=>'indexUser', 'uses'=>'UserController@indexUser']);
+Route::get('user/{id}', ['as'=>'userDel', 'uses'=>'UserController@deleteUser']);
 Route::get('/userDetail/{id}', ['as'=>'uDetail', 'uses'=>'UserController@getUserDetail']);
 
 Route::get('/productDetail/{id}/{UserId}', ['as'=>'addtocart', 'uses'=>'CartController@addProductToCart']);

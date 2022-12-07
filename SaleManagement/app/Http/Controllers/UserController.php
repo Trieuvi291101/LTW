@@ -22,11 +22,20 @@ class UserController extends Controller
     
     public function getUserDetail($id){
 
-
         $users = User::where('id', $id)->first();
         $user = User::all();
         
         return view('userDetail',compact('users', 'user'));
 
+    }
+    public function deleteUser($UserId){
+        $record = User::where('id', $USerId)->first();
+        if(file_exists(public_path("images/".$record->image ))){
+            unlink(public_path("images/".$record->image));
+
+        }
+        User::where('id', $UserId)->delete();
+        $u = User::All();
+        Return \Redirect::back()->with('thongbao','Xóa nhân viên thành công!' );
     }
 }

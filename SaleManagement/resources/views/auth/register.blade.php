@@ -30,8 +30,8 @@
                             <div class="col-md-6 ">
                                 <!-- <input id="user_role" type="text" class="form-control @error('user_role') is-invalid @enderror" name="user_role" value="{{ old('user_role') }}" required autocomplete="user_role" autofocus> -->
                                 <select class="form-control @error('user_role_id') is-invalid @enderror" id="user_role_id" name="user_role_id" value="{{ old('user_role_id') }}" required autocomplete="user_role_id" autofocus>
-                                    <option value="1">Customer</option>
-                                    <option value="2">Seller</option>
+                                    <option value="2">Customer</option>
+                                    <option value="4">Seller</option>
                                 </select>
                                 @error('user_role_id')
                                     <span class="invalid-feedback" role="alert">

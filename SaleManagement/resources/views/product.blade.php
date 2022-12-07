@@ -391,6 +391,46 @@
     </section>
     <!--end product -->
     <!-- end post -->
+    <!-- post -->
+    <section class="posts" id="info" >
+            <div class="container" >
+                <div class="slide-user-online">
+                    <div class="swiper mySwiper container">
+                        <div class="swiper-wrapper content">
+                            @foreach( $user as $u)
+                            <div class="swiper-slide card ">
+                                <div class="card-content">
+                                    <div class="image">
+                                        <img src="/images/{{$u->image}}" alt="">
+                                    </div>
+                                    <div class="name-profession">
+                                        <span class="name">{{$u->name}}</span>
+                                        <span class="profession">(Nhân viên tư vấn)</span>
+                                    </div>
+                                    <div class="button">
+                                        <button class="aboutMe">
+                                            <a href="javascript:0">
+                                                <i class="fa fa-phone" aria-hidden="true" style=" font-size: 14px;"></i>
+                                                Liên hệ
+                                            </a>
+                                        </button>
+                                        <button class="hireMe">
+                                            <a href="javascript:0">
+                                                <i class="fa fa-comment" aria-hidden="true" style=" font-size: 14px;"></i>
+                                                Nhắn tin
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
     
     <div class="main__modal">
         <div class="modal__overlay"></div>

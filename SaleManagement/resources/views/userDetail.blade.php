@@ -44,25 +44,27 @@
                                 Ngày tạo:
                                  {{$users->created_at}}
                             </div></br>
-                            <div class="dropdown notification-list">
-                                <a  class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <td>
+                                <div class="dropdown notification-list">
+                                    <a  class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
-                                    <span class="pro-user-name ml-1" >
-                                        <i class="material-icons" style="color: lightgray">settings</i>
-                                    </span>
-                                </a>
+                                        <span class="pro-user-name ml-1" >
+                                            <i class="material-icons" style="color: lightgray">settings</i>
+                                        </span>
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                    <a href="#" class="dropdown-item notify-item">
-                                        
-                                        <span class="badge ">Sửa</span>
-                                    </a>
-                                    <a href="#" class="dropdown-item notify-item">
-                                        
-                                        <span class="badge">Xóa</span>
-                                    </a>
-                                </div>           
-                            </div>
+                                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                        <a href="" class="dropdown-item notify-item">
+                                            <i class="fas fa-edit"></i>
+                                            <span class="badge ">Sửa</span>
+                                        </a>
+                                        <a href="" class="dropdown-item notify-item">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <span class="badge">Xóa</span>
+                                        </a>
+                                    </div>           
+                                </div>  
+                            </td>    
                         </div>
                     </div>
                 </article>

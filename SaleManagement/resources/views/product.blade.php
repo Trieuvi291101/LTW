@@ -105,11 +105,11 @@
                 <div class="bestselling__heading-wrap">
                     <img src="images/bestselling.png" alt="Sản phẩm bán chạy"
                     class="bestselling__heading-img">
-                    <div class="bestselling__heading">Top bán chạy nhất tháng</div>
+                    <div class="bestselling__heading">Top Sản phẩm mới nhất</div>
                 </div>
             </div>
             <section class="row">
-                @foreach($producttop as $p)
+                @foreach($productnew as $p)
                     <div class=" bestselling__product col-lg-4 col-md-6 col-6">
                         <div class="bestselling__product-img-box">
                             <img src="/images/{{$p->image}}" alt="images" class="bestselling__product-img">

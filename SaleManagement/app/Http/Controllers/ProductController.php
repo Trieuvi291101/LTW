@@ -16,9 +16,10 @@ class ProductController extends Controller
     {
         $category = Category::paginate(13);
         $product = Product::all();
-        $producttop = Product::paginate(6);
+        $productnew = Product::orderBy('created_date', 'desc')->paginate(6);
+   
         $user = User::all();  //tv
-        return view('product',compact('product','user', 'category', 'producttop'));
+        return view('product',compact('product','user', 'category', 'productnew'));
 
     }
     public function getProductDetail($ProductId){

@@ -23,11 +23,7 @@ class UserController extends Controller
     }
     
     public function getUserDetail($id){
-
-<<<<<<< Updated upstream
-=======
         $category = Category::All();
->>>>>>> Stashed changes
         $users = User::where('id', $id)->first();
         $user = User::all();
         
@@ -35,7 +31,7 @@ class UserController extends Controller
 
     }
     public function deleteUser($UserId){
-        $record = User::where('id', $USerId)->first();
+        $record = User::where('id', $UserId)->first();
         if(file_exists(public_path("images/".$record->image ))){
             unlink(public_path("images/".$record->image));
 

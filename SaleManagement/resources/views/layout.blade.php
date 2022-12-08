@@ -137,9 +137,6 @@
                                 </li>
                                 @endif
                                 @if (Auth::user()->user_role_id==1 || Auth::user()->user_role_id==3)
-                                <li class="header__nav-item">
-                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
-                                </li>
                                 <li class="header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Quản lý
@@ -149,6 +146,12 @@
                                             <h3>Nhân viên</h3>
                                         </a>
                                     </div>
+                                </li>
+                                @endif
+                                @if (Auth::user()->user_role_id==1 || Auth::user()->user_role_id==3 || Auth::user()->user_role_id==4)
+                                
+                                <li class="header__nav-item">
+                                    <a href="{{route('prodAdd')}}" class="header__nav-link">Quản lý sản phẩm</a>
                                 </li>
                                 @endif
                                 <li class=" header__nav-item dropdown">

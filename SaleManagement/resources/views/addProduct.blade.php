@@ -142,8 +142,12 @@
                                 @endforeach
                             </tbody>
                         </table>
-                      
+                        <div style="font-size: 12rem; color: black" class="float-right">
+                            {{$pro->links()}}
+                        </div>
+                        
                     </div>
+                   
                 </div>
             </div>
         </div>

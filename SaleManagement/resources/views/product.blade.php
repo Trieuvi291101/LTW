@@ -105,184 +105,40 @@
                 <div class="bestselling__heading-wrap">
                     <img src="images/bestselling.png" alt="Sản phẩm bán chạy"
                     class="bestselling__heading-img">
-                    <div class="bestselling__heading">Top bán chạy nhất tháng</div>
+                    <div class="bestselling__heading">Top Sản phẩm mới nhất</div>
                 </div>
             </div>
             <section class="row">
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
-
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
+                @foreach($productnew as $p)
+                    <div class=" bestselling__product col-lg-4 col-md-6 col-6">
+                        <div class="bestselling__product-img-box">
+                            <img src="/images/{{$p->image}}" alt="images" class="bestselling__product-img">
                         </div>
+                        <div class="bestselling__product-text">
+                            <h3 class="bestselling__product-title">
+                                <a href="#" class="bestselling__product-link">{{$p->name}}</a>
+                            </h3>
 
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
+                            <div class="bestselling__product-rate-wrap">
+                                <i class="fas fa-star bestselling__product-rate"></i>
+                                <i class="fas fa-star bestselling__product-rate"></i>
+                                <i class="fas fa-star bestselling__product-rate"></i>
+                                <i class="fas fa-star bestselling__product-rate"></i>
+                                
+                            </div>
 
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
+                            <span class="bestselling__product-price">
+                                @php echo number_format($p->price, 0); @endphp
+                            </span>
 
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
-                        </div>
-
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
-
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
+                            <div class="bestselling__product-btn-wrap">
+                                <button  class="bestselling__product-btn">
+                                    <a href="{{ route('prodDetail', ['id'=>$p->id])}}" class="info_product_link" >Xem Hàng</a></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
-
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
-                        </div>
-
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
-
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
-
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
-                        </div>
-
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
-
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
-
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
-                        </div>
-
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
-
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Iphone-11 bestselling__product col-lg-4 col-md-6 col-6">
-                    <div class="bestselling__product-img-box">
-                        <img src="images/stm32.jpg" alt="Oppo zeno 7" class="bestselling__product-img">
-                    </div>
-                    <div class="bestselling__product-text">
-                        <h3 class="bestselling__product-title">
-                            <a href="#" class="bestselling__product-link">OPPO Reno7 series</a>
-                        </h3>
-
-                        <div class="bestselling__product-rate-wrap">
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            <i class="fas fa-star bestselling__product-rate"></i>
-                            
-                        </div>
-
-                        <span class="bestselling__product-price">
-                            9.990.000đ
-                        </span>
-
-                        <div class="bestselling__product-btn-wrap">
-                        
-                            <button  class="bestselling__product-btn">
-                                <a href="#" class="info_product_link" >Xem Hàng</a></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </section>
             <div class="row bestselling__banner">
 
@@ -354,37 +210,37 @@
                     </nav>
 
                     <div class="row product__panel">
-                    @foreach($product as $p)
+                        @foreach($product as $p)
 
-                        <div class="product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="product__panel-item-wrap">
-                                <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
-                                    <div class="product__panel-img-wrap">
-                                        <img src="/images/{{$p->image}}" alt="" class="product__panel-img">
-                                    </div>
-                                    
-                                    <div class="product__panel-text">
-                                        <h3 class="product__panel-heading">
-                                            <a href="#" class="product__panel-link">{{$p->name}}</a>
-                                        </h3>
-                                        <div class="product__panel-rate-wrap">
-                                            <i class="fas fa-star product__panel-rate"></i>
-                                            <i class="fas fa-star product__panel-rate"></i>
-                                            <i class="fas fa-star product__panel-rate"></i>
-                                            <i class="fas fa-star product__panel-rate"></i>
-                                            <i class="fas fa-star product__panel-rate"></i>
+                            <div class="product__panel-item col-lg-3 col-md-4 col-sm-6 col-6">
+                                <div class="product__panel-item-wrap">
+                                    <a href="{{ route('prodDetail', ['id'=>$p->id])}}" >
+                                        <div class="product__panel-img-wrap">
+                                            <img src="/images/{{$p->image}}" alt="" class="product__panel-img">
                                         </div>
-                                        <div class="product__panel-price">
-                                            <span class="product__panel-price-current">
-                                            @php echo number_format($p->price, 0); @endphp
-                                            </span>
+                                        
+                                        <div class="product__panel-text">
+                                            <h3 class="product__panel-heading">
+                                                <a href="#" class="product__panel-link">{{$p->name}}</a>
+                                            </h3>
+                                            <div class="product__panel-rate-wrap">
+                                                <i class="fas fa-star product__panel-rate"></i>
+                                                <i class="fas fa-star product__panel-rate"></i>
+                                                <i class="fas fa-star product__panel-rate"></i>
+                                                <i class="fas fa-star product__panel-rate"></i>
+                                                <i class="fas fa-star product__panel-rate"></i>
+                                            </div>
+                                            <div class="product__panel-price">
+                                                <span class="product__panel-price-current">
+                                                @php echo number_format($p->price, 0); @endphp
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    </div>
                 </article>
             </div>
         </div>

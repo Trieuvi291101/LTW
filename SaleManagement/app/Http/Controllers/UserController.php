@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 use App\Models\UserRole;
 use App\Models\Gender;
 use Auth;
@@ -16,20 +17,21 @@ class UserController extends Controller
 
     public function indexUser()
     {
+        $category = Category::All();
         $user = User::all();
-        return view('user',compact('user'));
+        return view('user',compact('user', 'category'));
     }
     
     public function getUserDetail($id){
-
+        $category = Category::All();
         $users = User::where('id', $id)->first();
         $user = User::all();
         
-        return view('userDetail',compact('users', 'user'));
+        return view('userDetail',compact('users', 'user', 'category'));
 
     }
     public function deleteUser($UserId){
-        $record = User::where('id', $USerId)->first();
+        $record = User::where('id', $UserId)->first();
         if(file_exists(public_path("images/".$record->image ))){
             unlink(public_path("images/".$record->image));
 

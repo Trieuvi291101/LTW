@@ -51,23 +51,25 @@
                             </h1>
                         </div>
 
-                        <div class="col-lg-6 col-md-7 col-sm-0 header__search">
+                        <form class="col-lg-6 col-md-7 col-sm-0 header__search" methob="get" action=" {{route('search')}}">
                             <select name="" id="" class="header__search-select">
-                                <option value="0">All</option>
-                                <option value="1">Điện thoại</option>
-                                <option value="2">Máy tính bảng</option>
-                                <option value="3">Laptop</option>
-                                
+                                @foreach( $category as $c)
+                                    <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach 
                                 
                                 
                             </select>
-                            <input type="text" class="header__search-input" placeholder="Tìm kiếm tại đây...">
-                            <button class="header__search-btn">
+                            
+                            <input type="text" name = "key" class="header__search-input" placeholder="Tìm kiếm tại đây...">
+                            <button class="header__search-btn" type="submit">
                                 <div class="header__search-icon-wrap">
                                     <i class="fas fa-search header__search-icon"></i>
                                 </div>
                             </button>
-                        </div>
+
+                         
+                           
+                        </form>
 
                         <div class="col-lg-2 col-md-0 col-sm-0 header__call">
                             <div class="header__call-icon-wrap">
@@ -113,7 +115,7 @@
                                 </li>
                                 
                                 <li class="header__nav-item">
-                                    <a href="#info" class="header__nav-link">Liên hệ</a>
+                                    <a href="{{route('contact')}}" class="header__nav-link">Liên hệ</a>
                                 </li>
                                 <!-- Authentication Links -->
                             @guest
@@ -152,6 +154,7 @@
                                 <li class=" header__nav-item dropdown">
                                     <a id="navbarDropdown" class="header__nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
+                                        <img src=" /images/{{ Auth::user()->image }}" alt="user-image" class="rounded-circle" style="width: 30px; height: 30px">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('uDetail', ['id'=>auth ()->user ()->id])}}">

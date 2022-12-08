@@ -1,9 +1,11 @@
 <?php
-
+use App\Models\Category;
 use App\Models\Cart;
 use App\Models\OrderDetail;
+use App\Models\OrderStatus;
 use App\Models\SaleOrder;
 use App\Models\User;
+use Hamcrest\Number\OrderingComparisonTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +54,10 @@ Route::post('/order', function (Request $request) {
         Cart::where('id',$c->id)->delete();
     };
     return response()->json("Đã đặt đơn", 200);
+});
+Route::get('/Stars', function() {
+    return Category::select("id", "name")
+    ->withSum('Product', 'price')
+    ->get()
+    ->toArray();
 });

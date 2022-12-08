@@ -16,20 +16,23 @@ class ProductController extends Controller
     {
         $category = Category::paginate(13);
         $product = Product::all();
+        $productnew = Product::orderBy('created_date', 'desc')->paginate(6);
+   
         $user = User::all();  //tv
-        return view('product',compact('product','user', 'category'));
+        return view('product',compact('product','user', 'category', 'productnew'));
 
     }
     public function getProductDetail($ProductId){
+        $category = Category::All();
         $product = Product::where('id', $ProductId)->first();
         $user = User::all();
-        return view('productDetail',compact('product','user'));
+        return view('productDetail',compact('product','user', 'category'));
     }
     public function addProduct(){
         $category = Category::All();
-        $pro= Product::paginate(30);
+        $pro= Product::paginate(5);
         $user = User::all();  //tv
-        return view('addProduct',compact('category', 'pro','user'));
+        return view('addProduct',compact('category', 'pro','user'))->with('i', (request()->input('page', 1)-1)*5);
     }
     
     public function insertProduct(Request $request)
@@ -88,11 +91,33 @@ class ProductController extends Controller
         return redirect()->route('prodAdd');
     }
     public function Stars (){
+        $category = Category::All();
         $countpro = Category::select("id", "name")
-        ->withCount('Product')
+        ->withSum('Product', 'price')
         ->get()
         ->toArray();
         // dd($countpro);
-        return view('Stars', compact('countpro'));
+        return view('Stars', compact('countpro', 'category'));
+    }
+
+    //search
+    public function getSearch(Request $req){
+        $category = Category::All();
+        $product = Product::where('name', 'like', '%' . $req->key . '%')
+            ->orWhere('price', $req->key)
+            ->get();
+        return view('search', compact('product','category' ));
+    }
+    public function layoutSelectSearch()
+    {
+        $category = Category::All();
+        return view('layout',compact('category'));
+
+    }
+    //liên hệ
+    public function contact()
+    {
+        $category = Category::All();
+        return view('contact', compact('category'));
     }
 }

@@ -145,6 +145,9 @@
                                         <a class="dropdown-item" href="{{route('indexUser')}}">
                                             <h3>Nhân viên</h3>
                                         </a>
+                                        <a class="dropdown-item" href="{{route('saleOrder')}}">
+                                            <h3>Đơn hàng</h3>
+                                        </a>
                                     </div>
                                 </li>
                                 @endif
@@ -163,7 +166,9 @@
                                         <a class="dropdown-item" href="{{ route('uDetail', ['id'=>auth ()->user ()->id])}}">
                                             <h3>Tài khoản</h3>
                                         </a>
-
+                                        <a class="dropdown-item" href="{{route('userOrder')}}">
+                                            <h3>Đơn hàng</h3>
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

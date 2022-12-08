@@ -73,14 +73,23 @@
                                     <input type="button" value="+" class="product__main-info-cart-quantity-plus">
                                 </div>-->
                                 
-                                
+                                @if(Auth::user())
                                 <a href="{{route('addtocart', ['id'=>$product->id, 'UserId'=>Auth::user()->id])}}">
                                     <div class="product__main-info-cart-btn-wrap">
                                         <button class="product__main-info-cart-btn">
                                             Thêm vào giỏ hàng
                                         </button>
                                     </div>
-                                </a>    
+                                </a>
+                                @else
+                                <a href="{{ route('login') }}">
+                                    <div class="product__main-info-cart-btn-wrap">
+                                        <button class="product__main-info-cart-btn">
+                                            Thêm vào giỏ hàng
+                                        </button>
+                                    </div>
+                                </a>
+                                @endif
                             </div>
 
                             <div class="product__main-info-contact">

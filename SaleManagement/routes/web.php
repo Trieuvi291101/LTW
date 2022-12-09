@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,3 +45,6 @@ Route::get('/productDetail/remove/{id}/{UserId}', ['as'=>'removeproduct', 'uses'
 Route::get('/search', ['as'=>'search', 'uses'=>'ProductController@getSearch']);
 //liên hệ
 Route::get('/contact', ['as'=>'contact', 'uses'=>'ProductController@contact']);
+
+Route::get('/order', ['as' => 'userOrder', 'uses' => 'OrderController@index']);
+Route::get('/order/admin', ['as' => 'saleOrder', 'uses' => 'OrderController@saleOrder']);

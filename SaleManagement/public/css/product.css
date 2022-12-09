@@ -941,3 +941,6 @@ div.intro-img>img {
 	font-size: 1.3rem;
 	font-weight: initial;
 }
+a:active {
+	color: orangered;
+}
